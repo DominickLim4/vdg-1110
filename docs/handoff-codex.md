@@ -24,7 +24,8 @@ Site-presente de aniversário (25 anos, 11/10/2026) para a Geo Froes, no tema St
 - `npm run icones`: gera os ícones do PWA em `public/icons`.
 - `node scripts/fluxos.mjs [url] [pasta]` e `node scripts/fluxos-novos.mjs [url] [pasta]`: jogam os fluxos num iPhone simulado e conferem o resultado.
 - `node scripts/capturas.mjs [url] [pasta]`: percorre o site num iPhone simulado e salva screenshots. Nesta máquina o Chromium do Playwright 1.64 não está instalado. Use o executável em cache: `CHROMIUM="$HOME/Library/Caches/ms-playwright/chromium-1228/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing"`.
-- Deploy: `.github/workflows/deploy.yml` (push na `main` → Pages). `base: './'` no Vite, então funciona em qualquer subcaminho.
+- Deploy: `npm run publicar` (`scripts/publicar.sh`) faz o build e força o push de `dist/` na branch `gh-pages`; o Pages serve essa branch (modo legacy). O workflow `.github/workflows/deploy.yml` existe só localmente: o token do `gh` não tem o escopo `workflow`. Para usar Actions: `gh auth refresh -s workflow`, remover a linha do `.git/info/exclude`, commitar o workflow e mudar o Pages para `build_type=workflow`. `base: './'` no Vite.
+- Repositório: https://github.com/DominickLim4/vdg-1110 (público). Site: https://dominicklim4.github.io/vdg-1110/. O dono pediu commits só com a autoria dele (sem linhas de coautoria); `CLAUDE.md` está em `.git/info/exclude`.
 
 ## Estrutura
 - `src/App.tsx`: portão → abertura → casco (HUD + tela + hotbar). Rotas por hash (`#/casa`, `#/jogo/pesca`).
@@ -64,4 +65,4 @@ Site-presente de aniversário (25 anos, 11/10/2026) para a Geo Froes, no tema St
 - 2026-10-10 (rodada 5): 33 fotos de Nós processadas (77 MB → 3,8 MB, sem EXIF); polaroids enquadradas mais para cima (`object-position: 50% 28%`) e ritmo do diário 1 grande + 2 pequenas (`3n+1`), sem buracos. O retrato do save é a 1ª foto de `fotos/nos` em ordem alfabética.
 - 2026-10-10 (rodada 6): easter egg pedido pelo dono: escolher "Nigiri" na montagem do sushi abre o pop-up "naoooooooo vida naoooooooooo" (texto exato) com som de erro; o nigiri continua escolhido. Formato inicial passou a ser Uramaki para que o nigiri seja escolha ativa. Coberto em `fluxos-novos.mjs`.
 - 2026-10-11 (pré-publicação): bilhete da Sala Secreta finalizado (`rascunho: false`); carta escrita pelo dono. Cópia limpa do repositório (466 arquivos, 27 MB, sem fotos originais nem mood-board): `npm ci` + 18 testes + build ok. Build servido em subcaminho `/vdg-1110/`: `fluxos.mjs` 9/9 e `fluxos-novos.mjs` 14/14 sem erros. Persistência verificada: progresso fica salvo por aparelho/navegador (reabrir não reseta); outro aparelho começa do zero; `?dev=1` → Zerar TUDO volta ao portão.
-- Ainda não existe repositório git nem deploy; aguardando o dono autorizar a criação do repositório público.
+- 2026-10-11: publicado. Os 23 fluxos passaram contra o site real (https://dominicklim4.github.io/vdg-1110/), sem erros de recurso em duas varreduras de todas as telas.
