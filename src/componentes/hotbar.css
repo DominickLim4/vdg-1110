@@ -1,0 +1,85 @@
+.hotbar-area {
+  position: relative;
+  padding: 0 6px calc(8px + env(safe-area-inset-bottom));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  z-index: 5;
+}
+
+.hotbar__rotulo {
+  font-size: var(--t-14);
+  pointer-events: none;
+}
+
+.hotbar {
+  list-style: none;
+  margin: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 2px;
+  padding: calc(var(--px) * 4);
+}
+
+.hotbar li {
+  display: flex;
+}
+
+.hotbar__slot {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  transition: transform 0.15s var(--mola);
+}
+
+.hotbar__slot img {
+  max-width: 84%;
+  max-height: 84%;
+  width: auto;
+  height: auto;
+}
+
+.hotbar__slot:active {
+  transform: scale(0.9);
+}
+
+.hotbar__slot--ativo {
+  outline: var(--px) solid #d7263d;
+  outline-offset: calc(var(--px) * -1);
+  transform: translateY(-3px);
+}
+
+.hotbar__slot--ativo img {
+  animation: pulinho 0.5s var(--mola);
+}
+
+@keyframes pulinho {
+  0% { transform: translateY(0); }
+  40% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+.hotbar__aviso {
+  position: absolute;
+  top: -4px;
+  right: -2px;
+  width: 18px;
+  height: 18px;
+  display: grid;
+  place-items: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  background: #d7263d;
+  box-shadow: 0 0 0 2px var(--madeira-escura);
+  animation: aviso 1.2s ease-in-out infinite;
+}
+
+@keyframes aviso {
+  50% { transform: translateY(-3px); }
+}

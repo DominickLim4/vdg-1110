@@ -1,0 +1,387 @@
+.brinquedo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.brinquedo__titulo {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--t-22);
+}
+
+.brinquedo__dica {
+  margin: 0;
+  font-size: var(--t-14);
+  color: var(--tinta-suave);
+}
+
+.brinquedo__resultado {
+  margin: 0;
+  text-align: center;
+  font-weight: 600;
+}
+
+.brinquedo__linha {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+/* Coca */
+.coca {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 18px;
+  padding: 8px 0;
+}
+
+.coca__lata {
+  touch-action: none;
+  -webkit-touch-callout: none;
+}
+
+.coca__pressao {
+  width: 18px;
+  height: 104px;
+  display: flex;
+  align-items: flex-end;
+  padding: 3px;
+}
+
+.coca__pressao div {
+  width: 100%;
+  background: linear-gradient(180deg, #ff6b6b, #d7263d);
+}
+
+.coca__bolha {
+  position: absolute;
+  left: 44%;
+  top: 30%;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.95);
+  background: rgba(60, 40, 30, 0.35);
+  pointer-events: none;
+}
+
+/* Plástico-bolha */
+.plastico {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 6px;
+  padding: 10px;
+  background: rgba(191, 231, 242, 0.6);
+  box-shadow: inset 0 0 0 2px #9fcfe0;
+  touch-action: none;
+}
+
+.plastico__bolha {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle at 32% 30%, #fff 0 16%, rgba(255, 255, 255, 0.55) 22%, rgba(143, 208, 230, 0.6) 70%);
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.9), 0 2px 0 rgba(63, 143, 176, 0.4);
+  transition: transform 0.12s;
+}
+
+.plastico__bolha--estourada {
+  transform: scale(0.82);
+  background: rgba(143, 208, 230, 0.25);
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.4);
+}
+
+/* Carinho */
+.carinho {
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 12px;
+  background: repeating-linear-gradient(90deg, #a8d08d 0 12px, #9cc782 12px 24px);
+  box-shadow: inset 0 0 0 var(--px) var(--madeira-escura);
+  touch-action: none;
+  overflow: hidden;
+}
+
+.carinho__coracao {
+  position: absolute;
+  top: 40%;
+  pointer-events: none;
+}
+
+.amizade {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}
+
+.amizade--vazio {
+  filter: grayscale(1) opacity(0.4);
+}
+
+/* D20 */
+.d20 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.d20__dado {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.d20__valor {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: var(--t-40);
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 3px 0 var(--madeira-escura), 2px 0 0 var(--madeira-escura), -2px 0 0 var(--madeira-escura), 0 -2px 0 var(--madeira-escura);
+}
+
+.d20__valor--critico {
+  color: var(--girassol);
+}
+
+.d20__valor--falha {
+  color: var(--rosa);
+}
+
+/* Ateliê */
+.atelie__tela {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  touch-action: none;
+  box-shadow: inset 0 0 0 var(--px) var(--madeira-escura), 0 0 0 var(--px) var(--madeira-escura);
+  cursor: crosshair;
+}
+
+.atelie__tintas {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 4px;
+}
+
+.atelie__tinta {
+  aspect-ratio: 1;
+  min-height: 30px;
+  box-shadow: inset 0 0 0 2px var(--madeira-escura);
+}
+
+.atelie__tinta--ativa {
+  outline: 3px solid var(--madeira-escura);
+  outline-offset: 2px;
+}
+
+.atelie__pinceis {
+  display: flex;
+  gap: 4px;
+}
+
+.atelie__pincel {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  background: var(--pergaminho-claro);
+  box-shadow: inset 0 0 0 2px var(--madeira-clara);
+}
+
+.atelie__pincel span {
+  display: block;
+  border-radius: 50%;
+  background: var(--tinta);
+}
+
+.atelie__pincel--ativo {
+  box-shadow: inset 0 0 0 3px var(--madeira-escura);
+}
+
+/* Guitarra */
+.guitarra__acoes {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 8px;
+}
+
+.guitarra__surpresa {
+  min-height: 56px;
+  font-size: var(--t-22);
+}
+
+.repertorio {
+  list-style: none;
+  margin: 0;
+  padding: 6px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  background: rgba(58, 34, 20, 0.08);
+  box-shadow: inset 0 0 0 2px var(--madeira-clara);
+}
+
+.repertorio__musica {
+  width: 100%;
+  min-height: 56px;
+  padding: 6px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  line-height: 1.1;
+  background: var(--pergaminho-claro);
+  box-shadow: inset 0 0 0 2px var(--madeira-clara);
+}
+
+.repertorio__musica strong {
+  font-size: var(--t-14);
+}
+
+.repertorio__musica span {
+  font-size: 0.85rem;
+  color: var(--tinta-suave);
+}
+
+.repertorio__musica--ativa {
+  background: #fde8ec;
+  box-shadow: inset 0 0 0 3px var(--bordo);
+}
+
+.guitarra__tocando {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 6px 6px 12px;
+  background: var(--pergaminho-claro);
+  box-shadow: inset 0 0 0 2px var(--bordo);
+}
+
+.guitarra__tocando p {
+  flex: 1;
+  margin: 0;
+}
+
+.guitarra__tocando p span {
+  color: var(--tinta-suave);
+}
+
+.guitarra__nota {
+  color: var(--bordo);
+  animation: pulinho 0.5s var(--mola) infinite;
+}
+
+.guitarra__parar {
+  width: 40px;
+  height: 40px;
+  color: var(--pergaminho-claro);
+  background: var(--bordo);
+  box-shadow: inset 0 0 0 2px #4d1420;
+}
+
+.guitarra__secao {
+  margin: 4px 0 -2px;
+  font-size: var(--t-18);
+}
+
+.guitarra__timbres {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+
+.guitarra__timbres .frasco {
+  min-height: 44px;
+  padding: 4px;
+}
+
+.guitarra {
+  display: grid;
+  gap: 8px;
+}
+
+.guitarra--acordes {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.guitarra--bateria {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.guitarra--efeitos {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.guitarra__pad {
+  min-height: 60px;
+  padding: 4px;
+  font-size: var(--t-18);
+  color: #fff;
+  background: linear-gradient(180deg, #c0392b, #8c2b3a);
+  box-shadow: inset 0 0 0 var(--px) #4d1420, inset 0 -6px 0 #5e1a28;
+  touch-action: manipulation;
+  transition: transform 0.08s, filter 0.08s;
+}
+
+.guitarra__pad--limpo {
+  background: linear-gradient(180deg, #5fb3cf, #3f8fb0);
+  box-shadow: inset 0 0 0 var(--px) #22566b, inset 0 -6px 0 #2c6f8f;
+}
+
+.guitarra__pad--8bit {
+  background: linear-gradient(180deg, #a15be0, #7a3bb5);
+  box-shadow: inset 0 0 0 var(--px) #4a2270, inset 0 -6px 0 #5b2a8a;
+}
+
+.guitarra__pad--violao {
+  background: linear-gradient(180deg, #c47a3a, #8a4a20);
+  box-shadow: inset 0 0 0 var(--px) var(--madeira-escura), inset 0 -6px 0 #6b3a1b;
+}
+
+.guitarra__pad--bateria {
+  min-height: 52px;
+  font-size: var(--t-14);
+  background: linear-gradient(180deg, #3d4f86, #2b3a67);
+  box-shadow: inset 0 0 0 var(--px) #1b2546, inset 0 -6px 0 #1b2546;
+}
+
+.guitarra__pad--efeito {
+  min-height: 52px;
+  font-size: var(--t-14);
+  color: var(--tinta);
+  background: linear-gradient(180deg, #f5c242, #e0a52c);
+  box-shadow: inset 0 0 0 var(--px) #8a6418, inset 0 -6px 0 #b5861f;
+}
+
+.guitarra__pad--ativo {
+  transform: translateY(3px);
+  filter: brightness(1.3);
+}
+
+/* Mengão */
+.mengao {
+  min-height: 110px;
+  display: grid;
+  place-items: center;
+  background: repeating-linear-gradient(180deg, #c8102e 0 22px, #111 22px 44px);
+  box-shadow: inset 0 0 0 var(--px) #111;
+}
+
+.mengao__grito {
+  padding: 6px 14px;
+  font-size: var(--t-28);
+  font-weight: 700;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.55);
+}

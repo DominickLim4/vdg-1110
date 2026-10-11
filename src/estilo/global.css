@@ -1,0 +1,225 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  background: var(--ceu);
+  color: var(--tinta);
+  font-family: var(--fonte-jogo);
+  font-size: var(--t-18);
+  line-height: 1.35;
+  -webkit-font-smoothing: antialiased;
+  font-synthesis: none;
+  letter-spacing: 0.02em;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  overscroll-behavior: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+input {
+  font: inherit;
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.pixel {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+:focus-visible {
+  outline: 3px solid var(--lagoa-funda);
+  outline-offset: 3px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ===== Moldura de madeira (caixa de diálogo do Stardew) ===== */
+.moldura {
+  --c: calc(var(--px) * 2);
+  position: relative;
+  background: var(--pergaminho);
+  padding: calc(var(--px) * 6);
+  box-shadow:
+    inset 0 0 0 var(--px) var(--madeira-escura),
+    inset 0 0 0 calc(var(--px) * 2) var(--madeira-clara),
+    inset 0 0 0 calc(var(--px) * 4) var(--madeira),
+    inset 0 0 0 calc(var(--px) * 5) var(--madeira-escura);
+  clip-path: polygon(
+    0 var(--c), var(--c) var(--c), var(--c) 0,
+    calc(100% - var(--c)) 0, calc(100% - var(--c)) var(--c), 100% var(--c),
+    100% calc(100% - var(--c)), calc(100% - var(--c)) calc(100% - var(--c)), calc(100% - var(--c)) 100%,
+    var(--c) 100%, var(--c) calc(100% - var(--c)), 0 calc(100% - var(--c))
+  );
+}
+
+.moldura--clara {
+  background: var(--pergaminho-claro);
+}
+
+.sombra-pixel {
+  filter: drop-shadow(0 var(--px) 0 rgba(58, 34, 20, 0.35)) drop-shadow(var(--px) var(--px) 0 rgba(58, 34, 20, 0.2));
+}
+
+/* Painel interno afundado (caixa de inventário) */
+.afundado {
+  background: #e9c88a;
+  box-shadow:
+    inset var(--px) var(--px) 0 #b98a4e,
+    inset calc(var(--px) * -1) calc(var(--px) * -1) 0 #fbe7bd;
+}
+
+/* ===== Botão de madeira ===== */
+.botao {
+  --c: var(--px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 10px 18px;
+  font-size: var(--t-18);
+  color: var(--pergaminho-claro);
+  background: var(--madeira);
+  text-shadow: 0 2px 0 var(--madeira-escura);
+  box-shadow:
+    inset 0 0 0 var(--px) var(--madeira-escura),
+    inset 0 calc(var(--px) * 2) 0 var(--madeira-clara),
+    inset 0 calc(var(--px) * -3) 0 var(--madeira-escura);
+  clip-path: polygon(
+    0 var(--c), var(--c) var(--c), var(--c) 0,
+    calc(100% - var(--c)) 0, calc(100% - var(--c)) var(--c), 100% var(--c),
+    100% calc(100% - var(--c)), calc(100% - var(--c)) calc(100% - var(--c)), calc(100% - var(--c)) 100%,
+    var(--c) 100%, var(--c) calc(100% - var(--c)), 0 calc(100% - var(--c))
+  );
+  transition: transform 0.12s var(--mola), filter 0.12s;
+}
+
+.botao:active {
+  transform: translateY(2px) scale(0.98);
+  filter: brightness(0.95);
+}
+
+.botao:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.botao--verde {
+  background: var(--grama-escura);
+  box-shadow:
+    inset 0 0 0 var(--px) #2c4f21,
+    inset 0 calc(var(--px) * 2) 0 var(--grama),
+    inset 0 calc(var(--px) * -3) 0 #2c4f21;
+  text-shadow: 0 2px 0 #2c4f21;
+}
+
+.botao--bordo {
+  background: var(--bordo);
+  box-shadow:
+    inset 0 0 0 var(--px) #4d1420,
+    inset 0 calc(var(--px) * 2) 0 #b5475a,
+    inset 0 calc(var(--px) * -3) 0 #4d1420;
+  text-shadow: 0 2px 0 #4d1420;
+}
+
+.botao--largo {
+  width: 100%;
+}
+
+/* ===== Títulos ===== */
+.titulo-jogo {
+  font-family: var(--fonte-jogo);
+  font-weight: 700;
+  font-size: var(--t-28);
+  line-height: 1.1;
+  margin: 0;
+  color: var(--pergaminho-claro);
+  text-shadow:
+    0 3px 0 var(--madeira-escura),
+    3px 0 0 var(--madeira-escura),
+    -3px 0 0 var(--madeira-escura),
+    0 -3px 0 var(--madeira-escura),
+    3px 3px 0 var(--madeira-escura),
+    -3px 3px 0 var(--madeira-escura),
+    3px -3px 0 var(--madeira-escura),
+    -3px -3px 0 var(--madeira-escura),
+    0 6px 0 rgba(58, 34, 20, 0.35);
+}
+
+.placa {
+  display: inline-block;
+  padding: 6px 14px 8px;
+  font-size: var(--t-18);
+  color: var(--pergaminho-claro);
+  background: var(--madeira);
+  text-shadow: 0 2px 0 var(--madeira-escura);
+  box-shadow:
+    inset 0 0 0 var(--px) var(--madeira-escura),
+    inset 0 calc(var(--px) * 2) 0 var(--madeira-clara);
+}
+
+.tela {
+  padding: 16px 16px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cabecalho-tela {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+  padding-top: 4px;
+}
+
+.cabecalho-tela p {
+  margin: 0;
+  color: var(--tinta);
+  background: rgba(255, 241, 210, 0.85);
+  padding: 4px 10px;
+  font-size: var(--t-14);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

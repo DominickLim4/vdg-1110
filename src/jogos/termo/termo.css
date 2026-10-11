@@ -1,0 +1,103 @@
+.termo {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0 10px calc(10px + env(safe-area-inset-bottom));
+}
+
+.termo__grade {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 12px;
+}
+
+.termo__linha {
+  display: grid;
+  grid-template-columns: repeat(5, min(56px, 6.4dvh));
+  justify-content: center;
+  gap: 6px;
+}
+
+.termo__casa {
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  font-size: min(var(--t-28), 4.2dvh);
+  background: rgba(255, 241, 210, 0.7);
+  box-shadow: inset 0 0 0 var(--px) var(--madeira-clara);
+}
+
+.termo__casa--cheia {
+  background: var(--pergaminho-claro);
+  box-shadow: inset 0 0 0 var(--px) var(--madeira-escura);
+}
+
+.termo__casa--certa {
+  background: var(--grama-escura);
+  color: #fff;
+  box-shadow: inset 0 0 0 var(--px) #2c4f21;
+}
+
+.termo__casa--presente {
+  background: var(--girassol);
+  box-shadow: inset 0 0 0 var(--px) #b58a1f;
+}
+
+.termo__casa--ausente {
+  background: #a8927a;
+  color: #fff;
+  box-shadow: inset 0 0 0 var(--px) #6b5a48;
+}
+
+.termo__aviso {
+  margin: 0;
+  text-align: center;
+  font-size: var(--t-14);
+  padding: calc(var(--px) * 5) calc(var(--px) * 6);
+}
+
+.teclado {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.teclado__fileira {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}
+
+.tecla {
+  flex: 1;
+  max-width: 40px;
+  min-height: min(52px, 6.6dvh);
+  font-size: var(--t-18);
+  font-weight: 600;
+  background: var(--pergaminho);
+  box-shadow: inset 0 0 0 2px var(--madeira-escura), inset 0 -4px 0 #d9b77a;
+  transition: transform 0.1s;
+}
+
+.tecla:active {
+  transform: translateY(2px);
+}
+
+.tecla--larga {
+  max-width: 64px;
+  flex: 1.6;
+  font-size: var(--t-14);
+}
+
+.tecla--certa { background: var(--grama-escura); color: #fff; }
+.tecla--presente { background: var(--girassol); }
+.tecla--ausente { background: #a8927a; color: #fff; opacity: 0.7; }
+
+.termo__fim {
+  padding-bottom: 8px;
+}

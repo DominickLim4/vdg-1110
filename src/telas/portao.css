@@ -1,0 +1,82 @@
+.portao {
+  position: relative;
+  z-index: 2;
+  min-height: 100dvh;
+  max-width: 440px;
+  margin: 0 auto;
+  padding: calc(32px + env(safe-area-inset-top)) 16px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.portao__titulo {
+  font-size: clamp(2.6rem, 13vw, 3.6rem);
+  text-align: center;
+}
+
+.portao__kimi {
+  position: relative;
+}
+
+.portao__coracao {
+  position: absolute;
+  left: 50%;
+  top: -10px;
+  translate: -50% 0;
+}
+
+.portao__caixa {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.portao__fala {
+  margin: 0;
+  color: var(--tinta-suave);
+  font-size: var(--t-14);
+}
+
+.portao__pergunta {
+  font-size: var(--t-22);
+  font-weight: 600;
+}
+
+.portao__input {
+  width: 100%;
+  min-height: 52px;
+  padding: 10px 14px;
+  border: 0;
+  outline: none;
+  font-size: var(--t-22);
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+.portao__input:focus-visible {
+  outline: 3px solid var(--lagoa-funda);
+}
+
+.portao__erro {
+  margin: 0;
+  color: var(--bordo);
+}
+
+.portao__dica {
+  margin: 0;
+  color: var(--grama-escura);
+  font-weight: 600;
+}
+
+.portao__acoes {
+  display: flex;
+  gap: 10px;
+}
+
+.portao__acoes .botao:last-child {
+  flex: 1;
+}

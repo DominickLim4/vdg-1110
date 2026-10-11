@@ -1,0 +1,76 @@
+.memoria {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0 10px calc(10px + env(safe-area-inset-bottom));
+  overflow-y: auto;
+}
+
+.memoria__placar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.memoria__placar .placa {
+  font-size: var(--t-14);
+}
+
+.memoria__mesa {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  padding: 10px;
+  background: repeating-linear-gradient(0deg, #c47a3a 0 22px, #a8642d 22px 24px);
+  box-shadow: inset 0 0 0 var(--px) var(--madeira-escura);
+}
+
+.carta-mem {
+  aspect-ratio: 3 / 4;
+  perspective: 600px;
+}
+
+.carta-mem__giro {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.carta-mem__verso,
+.carta-mem__frente {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  box-shadow: inset 0 0 0 var(--px) var(--madeira-escura);
+}
+
+.carta-mem__verso {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' shape-rendering='crispEdges'%3E%3Crect width='20' height='20' fill='%23f4f1ff'/%3E%3Cpath fill='%232c4a9e' d='M8 2h4v4h4v4h-4v4H8v-4H4V6h4zM0 0h3v2H2v1H0zM17 0h3v3h-1V2h-2zM0 17h2v1h1v2H0zM18 17h2v3h-3v-2h1z'/%3E%3C/svg%3E")
+    0 0 / 20px 20px;
+}
+
+.carta-mem__frente {
+  display: grid;
+  place-items: center;
+  background: var(--pergaminho-claro);
+  transform: rotateY(180deg);
+}
+
+.carta-mem__frente--achada {
+  background: #d8f0c4;
+}
+
+.memoria__fim {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.memoria__fim p {
+  margin: 0;
+  text-align: center;
+}

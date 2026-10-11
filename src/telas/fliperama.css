@@ -1,0 +1,90 @@
+.maquinas {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.maquina {
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+  text-align: left;
+  transition: transform 0.15s var(--mola);
+}
+
+.maquina:active {
+  transform: scale(0.97);
+}
+
+.maquina__tela {
+  width: 76px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.06) 50%, transparent 50%) 0 0 / 100% 4px,
+    linear-gradient(180deg, #2b3a67, #3d4f86);
+  box-shadow: inset 0 0 0 var(--px) var(--madeira-escura), inset 0 0 18px rgba(143, 208, 230, 0.35);
+}
+
+.maquina__tela--lagoa {
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.08) 50%, transparent 50%) 0 0 / 100% 4px,
+    linear-gradient(180deg, var(--lagoa), var(--lagoa-funda));
+}
+
+.maquina__info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.maquina__info strong {
+  font-size: var(--t-22);
+  line-height: 1.1;
+}
+
+.maquina__como {
+  font-size: var(--t-14);
+  color: var(--tinta-suave);
+}
+
+.maquina__premio {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--t-14);
+  color: var(--tinta-suave);
+}
+
+.maquina__premio--ganho {
+  color: var(--grama-escura);
+  font-weight: 600;
+}
+
+.maquina__estrelas {
+  display: flex;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.maquina--chefao {
+  background: linear-gradient(180deg, #fff1d2, var(--pergaminho));
+}
+
+.maquina--trancada {
+  filter: saturate(0.4);
+}
+
+.maquina--trancada:active {
+  transform: translateX(-4px);
+}
+
+.maquina__tela--parquinho {
+  background: repeating-linear-gradient(45deg, #ffe9a8 0 10px, #fbd97e 10px 20px);
+}

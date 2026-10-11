@@ -1,0 +1,36 @@
+:root {
+  --madeira-escura: #4a2511;
+  --madeira: #8a4a20;
+  --madeira-clara: #c47a3a;
+  --pergaminho: #f9dda4;
+  --pergaminho-claro: #fff1d2;
+  --tinta: #3a2214;
+  --tinta-suave: #6b4a32;
+  --ceu: #bfe7f2;
+  --ceu-alto: #8fd0e6;
+  --lagoa: #5fb3cf;
+  --lagoa-funda: #3f8fb0;
+  --grama: #78b159;
+  --grama-escura: #4f8a3c;
+  --rosa: #f2a6b6;
+  --lilas: #b8a6e3;
+  --girassol: #f5c242;
+  --bordo: #8c2b3a;
+  --prata: #d7dee8;
+  --ouro: #f5c242;
+  --iridio: #a15be0;
+
+  --px: 3px; /* unidade do "pixel" das molduras */
+  --fonte-jogo: 'Jersey 15', ui-rounded, system-ui, sans-serif;
+  --fonte-papel: 'Fraunces Variable', Georgia, serif;
+
+  --t-14: 1.05rem;
+  --t-18: 1.3rem;
+  --t-22: 1.6rem;
+  --t-28: 2rem;
+  --t-40: 2.8rem;
+
+  --hotbar-h: 76px;
+  --hud-h: 64px;
+  --mola: cubic-bezier(0.34, 1.56, 0.64, 1);
+}

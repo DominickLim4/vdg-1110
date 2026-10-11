@@ -1,0 +1,13 @@
+node_modules
+dist
+.DS_Store
+# fotos originais ficam só na sua máquina; o site usa src/fotos-otimizadas
+fotos/**/*
+!fotos/kimi/.gitkeep
+!fotos/nos/.gitkeep
+!fotos/nos/legendas.json
+# referência pessoal (tem dados do Pinterest dela)
+mood-board/
+test-results
+tsconfig.tsbuildinfo
+

@@ -1,0 +1,371 @@
+.pesca {
+  height: 100%;
+  overflow-y: auto;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.pesca__intro h2 {
+  margin: 0 0 6px;
+  font-size: var(--t-22);
+}
+
+.pesca__intro p {
+  margin: 0 0 8px;
+  font-size: var(--t-14);
+  line-height: 1.45;
+}
+
+.faixas {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.faixa {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 12px 6px;
+  text-align: center;
+  background: rgba(255, 241, 210, 0.9);
+  box-shadow: inset 0 0 0 var(--px) var(--madeira-clara);
+}
+
+.faixa--atingida {
+  background: #fff6c9;
+  box-shadow: inset 0 0 0 var(--px) var(--girassol), 0 0 16px rgba(245, 194, 66, 0.6);
+}
+
+.faixa__nome {
+  font-size: var(--t-14);
+  line-height: 1.15;
+}
+
+.faixa__pontos {
+  font-size: var(--t-14);
+  color: var(--tinta-suave);
+}
+
+.pesca__status {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  text-align: center;
+}
+
+.pesca__status > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.pesca__status-rotulo {
+  font-size: var(--t-14);
+  color: var(--tinta-suave);
+}
+
+.pesca__garantia {
+  font-size: var(--t-14);
+}
+
+.tentativas {
+  display: flex;
+  gap: 6px;
+}
+
+.tentativas__bola {
+  width: 16px;
+  height: 16px;
+  background: var(--grama);
+  box-shadow: inset 0 0 0 2px var(--madeira-escura);
+}
+
+.tentativas__bola--usada {
+  background: #a8927a;
+}
+
+.pesca__acoes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.resultado {
+  text-align: center;
+}
+
+.resultado p {
+  margin: 0;
+}
+
+.resultado__rotulo {
+  color: var(--tinta-suave);
+}
+
+.resultado__pontos {
+  font-size: var(--t-40);
+  font-weight: 700;
+}
+
+.resultado__nota {
+  font-size: var(--t-14);
+}
+
+.confirmar p {
+  margin: 0 0 10px;
+}
+
+.confirmar__acoes {
+  display: flex;
+  gap: 10px;
+}
+
+.confirmar__acoes .botao:last-child {
+  flex: 1;
+}
+
+/* ===== Durante a pesca ===== */
+.pesca-jogo {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: calc(10px + env(safe-area-inset-top)) 10px 10px;
+  touch-action: none;
+  -webkit-touch-callout: none;
+}
+
+.pesca-jogo__hud {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pesca-jogo__hud .placa {
+  font-size: var(--t-22);
+  font-variant-numeric: tabular-nums;
+}
+
+.placa--alerta {
+  background: var(--bordo);
+  animation: piscar 0.6s ease-in-out infinite;
+}
+
+.pesca-jogo__area {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 1fr 96px;
+  gap: 8px;
+}
+
+.lago {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #9ad8ec 0 30%, var(--lagoa) 30% 100%);
+  box-shadow: inset 0 0 0 var(--px) var(--madeira-escura);
+}
+
+.lago__pier {
+  position: absolute;
+  left: 0;
+  top: 26%;
+  width: 46%;
+  height: 22px;
+  background: repeating-linear-gradient(90deg, #c47a3a 0 16px, #a8642d 16px 18px);
+  box-shadow: 0 4px 0 var(--madeira-escura);
+}
+
+.lago__kimi {
+  position: absolute;
+  left: 8%;
+  top: calc(26% - 36px);
+  z-index: 1;
+}
+
+.lago__agua {
+  position: absolute;
+  inset: 30% 0 0;
+  background:
+    repeating-linear-gradient(180deg, transparent 0 18px, rgba(255, 255, 255, 0.12) 18px 20px),
+    linear-gradient(180deg, var(--lagoa), var(--lagoa-funda));
+}
+
+.boia {
+  position: absolute;
+  left: 62%;
+  top: 14%;
+  width: 14px;
+  height: 18px;
+  background: linear-gradient(180deg, #e2556f 0 50%, #fff 50%);
+  box-shadow: 0 0 0 2px var(--madeira-escura);
+  animation: boia 1.6s ease-in-out infinite;
+}
+
+.boia--puxando {
+  animation: puxando 0.18s ease-in-out infinite;
+}
+
+@keyframes boia {
+  50% { transform: translateY(4px); }
+}
+
+@keyframes puxando {
+  50% { transform: translateY(8px) rotate(8deg); }
+}
+
+.lago__aviso {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  top: 8px;
+  margin: 0;
+  padding: 6px 8px;
+  text-align: center;
+  font-weight: 600;
+  background: var(--pergaminho-claro);
+  box-shadow: inset 0 0 0 var(--px) var(--grama-escura);
+}
+
+.lago__aviso--ruim {
+  box-shadow: inset 0 0 0 var(--px) var(--bordo);
+}
+
+.lago__peixe {
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+  margin: 0;
+  font-size: var(--t-14);
+}
+
+.medidor {
+  display: grid;
+  grid-template-columns: 1fr 16px;
+  gap: 6px;
+  padding: calc(var(--px) * 5);
+}
+
+.medidor__agua {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #3f8fb0, #2c6f8f);
+}
+
+.medidor__barra {
+  position: absolute;
+  left: 3px;
+  right: 3px;
+  background: rgba(120, 177, 89, 0.55);
+  box-shadow: inset 0 0 0 3px #4f8a3c;
+  transition: background 0.1s;
+}
+
+.medidor__barra--ativa {
+  background: rgba(150, 220, 110, 0.8);
+  box-shadow: inset 0 0 0 3px #a5e08a;
+}
+
+.medidor__peixe {
+  position: absolute;
+  left: 50%;
+  translate: -50% 50%;
+  transition: opacity 0.2s;
+}
+
+.medidor__progresso {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+}
+
+.medidor__nivel {
+  width: 100%;
+  background: var(--grama);
+}
+
+.pesca-jogo__dica {
+  margin: 0;
+  text-align: center;
+  font-size: var(--t-14);
+  background: rgba(255, 241, 210, 0.9);
+  padding: 4px 8px;
+}
+
+.bandeja {
+  min-height: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 6px;
+  background: repeating-linear-gradient(90deg, #2b2b2b 0 10px, #333 10px 20px);
+  box-shadow: inset 0 0 0 var(--px) var(--madeira-escura);
+}
+
+/* ===== Revelação ===== */
+.revelacao {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.revelacao__palco {
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.revelacao__estrela {
+  filter: drop-shadow(0 0 18px rgba(255, 246, 201, 0.95));
+}
+
+.revelacao__estrela--iridio {
+  filter: drop-shadow(0 0 22px rgba(161, 91, 224, 0.9));
+}
+
+.revelacao__texto {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: calc(var(--px) * 6);
+  background: var(--pergaminho-claro);
+  box-shadow: inset 0 0 0 var(--px) var(--madeira-escura), inset 0 0 0 calc(var(--px) * 3) var(--madeira);
+}
+
+.revelacao__texto p {
+  margin: 0;
+}
+
+.revelacao__rotulo {
+  color: var(--tinta-suave);
+}
+
+.revelacao__nome {
+  margin: 0;
+  font-size: var(--t-28);
+}
+
+.revelacao__valor {
+  font-size: var(--t-40);
+  font-weight: 700;
+  color: var(--grama-escura);
+}
+
+.revelacao__descricao {
+  font-family: var(--fonte-papel);
+  margin-bottom: 8px !important;
+}
+
+.revelacao__suspense {
+  animation: piscar 0.8s ease-in-out infinite;
+}

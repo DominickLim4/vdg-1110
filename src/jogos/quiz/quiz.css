@@ -1,0 +1,221 @@
+.quiz {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: calc(10px + env(safe-area-inset-bottom));
+}
+
+.quiz__cena {
+  position: relative;
+  flex: 1;
+  min-height: 170px;
+  margin: 0 10px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #9ad8ec 0%, #c9ecf5 62%, var(--grama) 62%, #6da54f 100%);
+  box-shadow: inset 0 0 0 var(--px) var(--madeira-escura);
+}
+
+.quiz__amizade {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  padding: calc(var(--px) * 3) calc(var(--px) * 4);
+}
+
+.quiz__coracao {
+  filter: grayscale(1) brightness(1.4) opacity(0.45);
+  transition: filter 0.3s;
+}
+
+.quiz__coracao--cheio {
+  filter: none;
+  animation: pulinho 0.5s var(--mola);
+}
+
+.quiz__coracao--vazio {
+  filter: grayscale(1) brightness(0.6) opacity(0.6);
+}
+
+.quiz__casinha {
+  position: absolute;
+  left: 8%;
+  bottom: 36%;
+  width: 120px;
+}
+
+.quiz__telhado {
+  display: block;
+  height: 44px;
+  background: repeating-linear-gradient(180deg, #b5452e 0 10px, #9a3826 10px 12px);
+  clip-path: polygon(0 100%, 12% 66%, 24% 33%, 36% 0, 64% 0, 76% 33%, 88% 66%, 100% 100%);
+}
+
+.quiz__parede {
+  position: relative;
+  display: block;
+  height: 54px;
+  margin: 0 8px;
+  background: repeating-linear-gradient(180deg, #e8c48a 0 9px, #d8ae6f 9px 11px);
+  box-shadow: inset 0 0 0 var(--px) var(--madeira-escura);
+}
+
+.quiz__porta {
+  position: absolute;
+  bottom: 0;
+  left: 18px;
+  width: 22px;
+  height: 34px;
+  background: var(--madeira);
+  box-shadow: inset 0 0 0 var(--px) var(--madeira-escura);
+}
+
+.quiz__janela {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  width: 26px;
+  height: 20px;
+  background: #fff6c9;
+  box-shadow: inset 0 0 0 var(--px) var(--madeira-escura);
+}
+
+.quiz__cerca {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 30%;
+  height: 26px;
+  background:
+    linear-gradient(180deg, transparent 6px, #c47a3a 6px 10px, transparent 10px 16px, #c47a3a 16px 20px, transparent 20px),
+    repeating-linear-gradient(90deg, transparent 0 22px, #a8642d 22px 28px);
+}
+
+.quiz__kimi {
+  position: absolute;
+  right: 14%;
+  bottom: 14%;
+}
+
+.quiz__emote {
+  position: absolute;
+  left: 50%;
+  bottom: 100%;
+  margin-bottom: 6px;
+  translate: -50% 0;
+  padding: calc(var(--px) * 4);
+  min-width: 48px;
+  display: grid;
+  place-items: center;
+}
+
+.quiz__reticencias {
+  font-size: var(--t-28);
+  line-height: 0.6;
+  font-weight: 700;
+}
+
+.quiz__contador {
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+  font-size: var(--t-14);
+}
+
+.quiz__dialogo {
+  display: grid;
+  grid-template-columns: 1fr 104px;
+  gap: 6px;
+  padding: 0 10px;
+}
+
+.quiz__caixa {
+  min-height: 150px;
+  cursor: pointer;
+}
+
+.quiz__texto {
+  margin: 0;
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+
+.quiz__seta {
+  display: inline-block;
+  margin-left: 6px;
+  font-size: 12px;
+  color: var(--bordo);
+  animation: seta 0.7s ease-in-out infinite;
+}
+
+@keyframes seta {
+  50% { transform: translateY(3px); }
+}
+
+.quiz__retrato {
+  padding: calc(var(--px) * 5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.quiz__retrato-img {
+  width: 100%;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: #cfe9a8;
+}
+
+.quiz__retrato-img img {
+  width: 90%;
+  height: auto;
+}
+
+.quiz__nome {
+  font-weight: 600;
+}
+
+.quiz__opcoes {
+  list-style: none;
+  margin: 0 10px;
+  padding: calc(var(--px) * 5);
+  display: flex;
+  flex-direction: column;
+}
+
+.quiz__opcao {
+  width: 100%;
+  min-height: 46px;
+  padding: 8px 10px 8px 30px;
+  text-align: left;
+  font-size: var(--t-18);
+  position: relative;
+}
+
+.quiz__opcao:active,
+.quiz__opcao:hover {
+  background: rgba(196, 122, 58, 0.25);
+}
+
+.quiz__opcao:hover::before,
+.quiz__opcao:active::before,
+.quiz__opcao:focus-visible::before {
+  content: '▶';
+  position: absolute;
+  left: 8px;
+  color: var(--bordo);
+  font-size: 14px;
+  top: 50%;
+  translate: 0 -50%;
+}
+
+.quiz__rodape {
+  padding: 0 10px;
+}
